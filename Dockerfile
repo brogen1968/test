@@ -1,7 +1,7 @@
 # get image from...
 FROM centos:7
 # maintainer
-#MAINTAINER
+MAINTAINER I am
 # updates
 RUN yum -y update; yum clean all
 # install some utilites 
@@ -104,9 +104,9 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf 
 COPY nginx/index.html /usr/share/nginx/html/index.html
 
-#RUN rm -rf /usr/local/src/* \
-#	&& yum clean all
-RUN rm -rf /usr/local/src/*.tar.gz
+RUN rm -rf /usr/local/src/* \
+	&& yum clean all
+#RUN rm -rf /usr/local/src/*.tar.gz
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
